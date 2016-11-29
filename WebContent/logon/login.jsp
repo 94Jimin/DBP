@@ -8,7 +8,7 @@
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="login.css" rel="stylesheet" type="text/css">
+<link href="../css/login.css" rel="stylesheet" type="text/css">
 <title>BookR : 로그인</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
               <a href="#">sign in</a>
             </li>
             <li draggable="true">
-              <a href="#">sign out</a>
+              <a href="#">sign up</a>
             </li>
             <li draggable="true">
               <a href="#">sign out</a>
@@ -37,7 +37,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <a href="#"><img src="image/BookR_green.png" class="center-block img-responsive"></a>
+            <a href="#"><img src="../image/BookR_green.png" class="center-block img-responsive"></a>
           </div>
         </div>
       </div>
@@ -45,22 +45,23 @@
     <div class="section">
       <div class="container">
         <div class="row">
-          <form class="form-horizontal" role="form">
+          <form class="form-horizontal col-md-offset-3 col-md-6" role="form">
             <div class="form-group">
-              <div class="col-sm-10">
+              <div class="">
                 <input type="text" class="form-control input-lg" id="inputEmail3" placeholder="아이디">
               </div>
             </div>
             <div class="form-group">
-              <div class="col-sm-10">
-                <input type="password" class="form-control input-lg" id="inputPassword3" placeholder="비밀번호">
+              <div class="">
+                <input type="password" class="form-control input-lg" id="inputPassword3"
+                placeholder="비밀번호">
               </div>
             </div>
           </form>
         </div>
         <div class="row">
-          <div class="col-md-12">
-            <a class="btn btn-block btn-primary">로그인</a>
+          <div class="col-md-12  col-md-offset-3 col-md-6">
+            <a class="btn btn-block btn-primary btn-s">로그인</a>
           </div>
         </div>
         <div class="row">
