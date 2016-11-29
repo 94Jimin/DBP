@@ -21,10 +21,13 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#">log in</a>
+              <a href="logon/login.jsp">sign in</a>
             </li>
             <li draggable="true">
-              <a href="#">log out</a>
+              <a href="logon/signup.jsp">sign up</a>
+            </li>
+            <li draggable="true">
+              <a href="#">sign out</a>
             </li>
           </ul>
         </div>

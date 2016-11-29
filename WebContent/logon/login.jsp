@@ -13,31 +13,12 @@
 </head>
 <body>
 
-<div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#"><span>BookR</span></a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#">sign in</a>
-            </li>
-            <li draggable="true">
-              <a href="#">sign up</a>
-            </li>
-            <li draggable="true">
-              <a href="#">sign out</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+
     <div class="section">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <a href="#"><img src="../image/BookR_green.png" class="center-block img-responsive"></a>
+            <a href="../main.jsp"><img src="../image/BookR_green.png" class="center-block img-responsive"></a>
           </div>
         </div>
       </div>
