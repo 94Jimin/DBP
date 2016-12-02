@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,8 +26,10 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="mngr/managerMain.jsp">包府磊</a></li>
-					<li><a href="user/userInfo.jsp">冠瘤刮丛</a></li>
+					<c:if test="${!empty sessionScope.id }">
+						<li><a href="mngr/managerMain.jsp">包府磊</a></li>
+						<li><a href="user/userInfo.jsp">冠瘤刮丛</a></li>
+					</c:if>
 					<li><a href="logon/login.jsp">sign in</a></li>
 					<li><a href="logon/signup.jsp">sign up</a></li>
 					<li><a href="#">sign out</a></li>
