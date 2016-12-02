@@ -6,12 +6,10 @@ reg_date datetime NOT NULL,
 gender char(2) NOT NULL,
 favorite varchar(50)
 );
-
 select * from MEMBER;
+--drop table MEMBER;
 
-drop table MEMBER;
-
-insert into MEMBER values('admin','$2a$10$QxYtHTU2SRnLC.g1g8.E6ucImfLpigsmCxNF3BiSyUU7gDnrkpf52','������',getdate(),'M','');
+insert into MEMBER values('admin','$2a$10$QxYtHTU2SRnLC.g1g8.E6ucImfLpigsmCxNF3BiSyUU7gDnrkpf52','관리자',getdate(),'M','');
 
 ------------------------------------------------------------------------------------
 --book 테이블 관련 만들기
@@ -41,8 +39,10 @@ main_code int foreign key references MAIN_CATEGORY (code),
 sub_code int foreign key references SUB_CATEGORY (code)
 );
 select * from BOOK;
-
 --drop table BOOK;
+select top(3) * from BOOK where main_code=2;
+
+
 ---------------------------------------------------------------------------------
 -- list 관련 테이블 
 

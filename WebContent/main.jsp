@@ -28,31 +28,20 @@
 								<div class="col-md-3">
 									<ul class="lead list-group text-center">
 										<c:forEach var="List" items="${MCList }">
-											<li class="list-group-item">${List.getName() }</li>
+											<li class="list-group-item"><a
+												href="/BookR/index.do?main_code=${List.getCode() }">${List.getName() }</a></li>
 										</c:forEach>
 									</ul>
 								</div>
-								<div class="col-md-3">
-									<a href="#"> <img
-										src="https://unsplash.imgix.net/reserve/QTrNn7DETWGsjyS5L2n5__MG_8345.jpg?w=1024&amp;q=50&amp;fm=jpg&amp;s=f89d9bb3940033eca06ed432a250bb6d"
-										class="img-responsive"></a> <a href="book/bookInfo.jsp">
-										<h3 class="text-center">Heading</h3>
-									</a>
-								</div>
-								<div class="col-md-3">
-									<a href="#"> <img
-										src="https://unsplash.imgix.net/reserve/QTrNn7DETWGsjyS5L2n5__MG_8345.jpg?w=1024&amp;q=50&amp;fm=jpg&amp;s=f89d9bb3940033eca06ed432a250bb6d"
-										class="img-responsive"></a> <a href="book/bookInfo.jsp">
-										<h3 class="text-center">Heading</h3>
-									</a>
-								</div>
-								<div class="col-md-3">
-									<a href="#"> <img
-										src="https://unsplash.imgix.net/reserve/QTrNn7DETWGsjyS5L2n5__MG_8345.jpg?w=1024&amp;q=50&amp;fm=jpg&amp;s=f89d9bb3940033eca06ed432a250bb6d"
-										class="img-responsive"></a> <a href="book/bookInfo.jsp">
-										<h3 class="text-center">Heading</h3>
-									</a>
-								</div>
+								<c:forEach var="List" items="${bookList }">
+									<div class="col-md-3">
+										<a href="#"> <img
+											src="https://unsplash.imgix.net/reserve/QTrNn7DETWGsjyS5L2n5__MG_8345.jpg?w=1024&amp;q=50&amp;fm=jpg&amp;s=f89d9bb3940033eca06ed432a250bb6d"
+											class="img-responsive"></a> <a href="book/bookInfo.jsp">
+											<h3 class="text-center">${List.getSubject() }</h3>
+										</a>
+									</div>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
