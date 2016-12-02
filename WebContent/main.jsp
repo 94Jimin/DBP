@@ -17,47 +17,9 @@
 <title>BookR</title>
 </head>
 <body>
-
-	<div class="navbar navbar-default navbar-static-top">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#"><span>BookR</span></a>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<c:if test="${!empty sessionScope.id }">
-						<li><a href="user/userInfo.jsp">${sessionScope.id } 님</a></li>
-					</c:if>
-					<li><a href="/BookR/login.do">sign in</a></li>
-					<li><a href="/BookR/signup.do">sign up</a></li>
-					<li><a href="/BookR/logout.do">log out</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="section">
 		<div class="container">
-			<div class="row" vertical-align="middle">
-				<div class="col-md-2 text-justify">
-					<img src="/BookR/image/BookR.png" class="img-responsive">
-				</div>
-				<div class="col-md-10" vertical-align="middle">
-					<form class="form-horizontal" role="form"
-						action="search/searchDone.jsp">
-						<div class="form-group has-feedback">
-							<div class="col-sm-10 text-center">
-								<input type="text" class="form-control input-lg"
-									placeholder="책을 검색하세요">
-							</div>
-							<div class="col-sm-2 text-center">
-								<button type="submit" class="btn btn-block btn-default btn-lg">
-									<i class="fa fa-fw fa-search"></i>검색
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section">
@@ -65,13 +27,9 @@
 							<div class="row">
 								<div class="col-md-3">
 									<ul class="lead list-group text-center">
-										<li class="list-group-item">소설</li>
-										<li class="list-group-item">경제/경영</li>
-										<li class="list-group-item">자기계발</li>
-										<li class="list-group-item">여행</li>
-										<li class="list-group-item">과학</li>
-										<li class="list-group-item">컴퓨터/IT</li>
-										<li class="list-group-item">건강/다이어트</li>
+										<c:forEach var="List" items="${MCList }">
+											<li class="list-group-item">${List.getName() }</li>
+										</c:forEach>
 									</ul>
 								</div>
 								<div class="col-md-3">
