@@ -1,14 +1,15 @@
-create table MEMBER(
-id varchar(50) PRIMARY KEY NOT NULL,
-passwd varchar(60) NOT NULL,
-name varchar(20) NOT NULL,
-reg_date datetime NOT NULL,
-gender char(2) NOT NULL,
-favorite varchar(50)
-);
-
-select * from MEMBER;
-
-drop table MEMBER;
-
-insert into MEMBER values('admin','$2a$10$QxYtHTU2SRnLC.g1g8.E6ucImfLpigsmCxNF3BiSyUU7gDnrkpf52','∞¸∏Æ¿⁄',getdate(),'M','');
+ create table MEMBER(		  
+ member_id varchar(50) PRIMARY KEY NOT NULL,
+ member_passwd varchar(50) NOT NULL,
+ member_name varchar(10) NOT NULL,
+ member_reg_date datetime NOT NULL,
+ member_gender char(2) NOT NULL,
+ member_favorite varchar(50)
+  );		  );
+  		  
+  select * from MEMBER;		  select * from MEMBER;
+  		  
+  drop table MEMBER;		  drop table MEMBER;
+  		  
+ insert into MEMBER(member_id,member_passwd,member_name,member_reg_date,member_gender) 		 +insert into MEMBER values('admin','$2a$10$QxYtHTU2SRnLC.g1g8.E6ucImfLpigsmCxNF3BiSyUU7gDnrkpf52','¬∞√º¬∏¬Æ√Ä√ö',getdate(),'M','');
+ values('admin','1234','Í¥ÄÎ¶¨Ïûê',getdate(),'F'); 
