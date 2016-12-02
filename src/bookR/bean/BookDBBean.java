@@ -54,7 +54,7 @@ public class BookDBBean {
 				do {
 					BookDataBean books = new BookDataBean();
 
-					books.setCode(rs.getInt("id"));
+					books.setCode(rs.getInt("code"));
 					books.setSubject(rs.getString("subject"));
 
 					bookList.add(books);
