@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Iterator;
 import java.util.Properties;
 
-import javax.activation.CommandMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -24,10 +23,10 @@ import bookR.command.CommandAction;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = { "/Controller", "*.do" }, initParams = { @WebInitParam(name = "propertConfig", value = "commandMapping.properties") })
+@WebServlet(urlPatterns = { "/Controller", "*.do" }, initParams = { @WebInitParam(name = "propertyConfig", value = "commandMapping.properties") })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//紐낅졊�뼱�� 紐낅졊�뼱 泥섎━ �겢�옒�뒪瑜� �뙇�쑝濡� ���옣
+
 	private Map<String, Object> commandMap = new HashMap<String, Object>();
 
 	/**
@@ -117,8 +116,7 @@ public class Controller extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("cont", view);
-		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("/index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);
 	}
 

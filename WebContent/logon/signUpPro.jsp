@@ -1,6 +1,7 @@
-<%@ page language="java" import="java.sql.*"
-	contentType="text/html; charset=utf-8"%>
-<%
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%-- <%
 	request.setCharacterEncoding("utf-8");
 %>
 <%
@@ -22,21 +23,21 @@
 	//단계5 : PreparedStatement 객체로 실행할 SQL 문 생성
 	String SQL = "insert into MEMBER(member_id, member_passwd, member_name, member_reg_date, member_gender, member_favorite) ";
 	SQL += "values(?,?,?,getdate(),?,?);";
-	
+
 	pstmt = con.prepareStatement(SQL);
-	
+
 	// 단계6 : PreparedStatement 객체로 실행할 SQL 문의 ? 위치에 각각의 값을 세팅
 	pstmt.setString(1, id);
 	pstmt.setString(2, passwd);
 	pstmt.setString(3, name);
 	pstmt.setString(4, gender);
 	pstmt.setString(5, favorite);
-	
+
 	int result = pstmt.executeUpdate();
-	
+
 	//단계7 :객체 종료
 	pstmt.close();
 	con.close();
-	
+
 	response.sendRedirect("../main.jsp");
-%>
+%> --%>

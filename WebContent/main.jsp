@@ -14,7 +14,7 @@
 <link
 	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link href="css/main.css" rel="stylesheet" type="text/css">
+<link href="/BookR/css/main.css" rel="stylesheet" type="text/css">
 <title>BookR</title>
 </head>
 <body>
@@ -27,12 +27,11 @@
 			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<c:if test="${!empty sessionScope.id }">
-						<li><a href="mngr/managerMain.jsp">°ü¸®ÀÚ</a></li>
-						<li><a href="user/userInfo.jsp">¹ÚÁö¹Î´Ô</a></li>
+						<li><a href="user/userInfo.jsp">${sessionScope.id } ´Ô</a></li>
 					</c:if>
-					<li><a href="logon/login.jsp">sign in</a></li>
-					<li><a href="logon/signup.jsp">sign up</a></li>
-					<li><a href="#">sign out</a></li>
+					<li><a href="/BookR/login.do">sign in</a></li>
+					<li><a href="/BookR/signup.do">sign up</a></li>
+					<li><a href="/BookR/logout.do">log out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -41,7 +40,7 @@
 		<div class="container">
 			<div class="row" vertical-align="middle">
 				<div class="col-md-2 text-justify">
-					<img src="image\BookR.png" class="img-responsive">
+					<img src="/BookR/image/BookR.png" class="img-responsive">
 				</div>
 				<div class="col-md-10" vertical-align="middle">
 					<form class="form-horizontal" role="form"
