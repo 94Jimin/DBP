@@ -82,6 +82,18 @@ values('200-B-1','넛지','리처드 탈러, 캐스선스타인','리더북스','200','200-B');
 insert into BOOK(code,subject,writer,publisher,main_category_code,sub_category_code) 
 values('200-B-2','화폐전쟁','쑹훙빈','랜덤하우스코리아','200','200-B');
 insert into BOOK(code,subject,writer,publisher,main_category_code,sub_category_code) 
-values('200-B-1','그들이 말하지 않는 23가지','장하준','부키','200','200-B');
+values('200-B-3','그들이 말하지 않는 23가지','장하준','부키','200','200-B');
 insert into BOOK(code,subject,writer,publisher,main_category_code,sub_category_code) 
-values('200-B-1','경제학 콘서트','팀 하포드','웅진지식하우스','200','200-B');
+values('200-B-4','경제학 콘서트','팀 하포드','웅진지식하우스','200','200-B');
+
+insert into BOOK(code,subject,writer,publisher,main_category_code,sub_category_code) 
+values('200-A-1','경영학 콘서트','장영재','비즈니스북스','200','200-A');
+insert into BOOK(code,subject,writer,publisher,main_category_code,sub_category_code) 
+values('200-A-2','카르마 경영','이나모리가즈오','서돌','200','200-A');
+
+insert into BOOK(code,subject,writer,publisher,main_category_code,sub_category_code) 
+values('400-A-1','진짜 서울은 골목 안에 있다','이주화','이른 아침','400','400-A');
+insert into BOOK(code,subject,writer,publisher,main_category_code,sub_category_code) 
+values('400-A-2','지하철로 떠나는 서울&근교 여행','최미선, 신석교','넥서스BOOKS','400','400-A');
+insert into BOOK(code,subject,writer,publisher,main_category_code,sub_category_code) 
+values('400-A-3','주말엔 서울여행','유철상','상상출판','400','400-A');
