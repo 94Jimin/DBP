@@ -43,7 +43,23 @@ sub_code int foreign key references SUB_CATEGORY (code)
 select * from BOOK;
 
 --drop table BOOK;
+---------------------------------------------------------------------------------
+-- list 관련 테이블 
 
+create table LIST_BOOK (
+list_code int identity(1, 1) primary key not null,
+book int foreign key references BOOK (code)
+);
+select * from LIST_BOOK;
+--drop table LIST_BOOK;
+
+create table LIST_TABLE (
+id varchar(50) foreign key references MEMBER (id),
+list_code int foreign key references LIST_BOOK (list_code)
+);
+
+--인덱스 생성
+create clustered index LIST on LIST_TABLE (id,list_code);
 ---------------------------------------------------------------------------------
 -- 카테고리 만들기
 

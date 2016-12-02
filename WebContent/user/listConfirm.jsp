@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,76 +14,32 @@
 	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="/BookR/css/listConfirm.css" rel="stylesheet" type="text/css">
-<title>Insert title here</title>
+<title>BookR : Î¶¨Ïä§Ìä∏Î™©Î°ù ÌôïÏù∏</title>
 </head>
 <body>
-<div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#"><span>BookR</span></a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#">sign in</a>
-            </li>
-            <li draggable="true">
-              <a href="#">sign up</a>
-            </li>
-            <li draggable="true">
-              <a href="#">sign out</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="row" vertical-align="middle">
-          <div class="col-md-2 text-justify">
-            <img src="..\Google µÂ∂Û¿Ã∫Í\2_«–±≥\3«–≥‚ 2«–±‚\5_µ•¿Ã≈Õ∫£¿ÃΩ∫«¡∑Œ¡ß∆Æ\«¡∑Œ¡ß∆Æ ¿ÃπÃ¡ˆ\BookR.png"
-            class="img-responsive">
-          </div>
-          <div class="col-md-10" vertical-align="middle">
-            <form class="form-horizontal" role="form">
-              <div class="form-group has-feedback">
-                <div class="col-sm-10 text-center">
-                  <input type="text" class="form-control input-lg" placeholder="√•¿ª ∞Àªˆ«œººø‰">
-                </div>
-                <div class="col-sm-2 text-center">
-                  <button type="submit" class="btn btn-block btn-default btn-lg">
-                    <i class="fa fa-fw fa-search"></i>∞Àªˆ</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="text-center">List 1 ∏Ò∑œ</h2>
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td>1π¯</td>
-                  <td>
-                    <a>√• ¿Ã∏ß</a>
-                  </td>
-                </tr>
-              </tbody>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>√• ¡¶∏Ò</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+	<jsp:include page="/header.jsp"/>
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="text-center">List 1 Î™©Î°ù</h2>
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>1Î≤à</td>
+								<td><a>Ï±Ö Ïù¥Î¶Ñ</a></td>
+							</tr>
+						</tbody>
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Ï±Ö Ï†úÎ™©</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
