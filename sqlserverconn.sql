@@ -12,4 +12,4 @@ select * from MEMBER;
 drop table MEMBER;
 
 insert into MEMBER(member_id,member_passwd,member_name,member_reg_date,member_gender) 
-values('admin','1234','째체쨍짰�횣',getdate(),'F');
+values('admin','1234','°ü¸®ÀÚ',getdate(),'F');
