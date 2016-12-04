@@ -2,7 +2,8 @@ package bookR.bean;
 
 public class ListDataBean {
 	private String id;
-	private int list_code;
+	private String listCode;
+	private int bookCode;
 
 	public String getId() {
 		return id;
@@ -12,11 +13,19 @@ public class ListDataBean {
 		this.id = id;
 	}
 
-	public int getList_code() {
-		return list_code;
+	public String getListCode() {
+		return listCode;
 	}
 
-	public void setList_code(int list_code) {
-		this.list_code = list_code;
+	public void setListCode(String listCode) {
+		this.listCode = listCode;
+	}
+
+	public int getBookCode() {
+		return bookCode;
+	}
+
+	public void setBookCode(int bookCode) {
+		this.bookCode = bookCode;
 	}
 }

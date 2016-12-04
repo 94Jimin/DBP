@@ -44,13 +44,14 @@
 							<div class="page-header">
 								<h4>${book.getPublisher() }</h4>
 							</div>
-							<%-- <c:if test="${!empty sessionScope.id }"> --%>
-							<div class="page-header">
-							<input type="hidden" id="id" value="${sessionScope.id }"/>
-							<input type="hidden" id="bookcode" value="${book.getCode() }"/>
-								<button type="submit" id="insetList" class="btn btn-primary">리스트에 담기</button>
-							</div>
-							<%-- </c:if> --%>
+							<c:if test="${!empty sessionScope.id }">
+								<div class="page-header">
+									<input type="hidden" id="id" value="${sessionScope.id }" /> <input
+										type="hidden" id="bookCode" value="${book.getCode() }" />
+									<button id="insertList" class="btn btn-primary">리스트에
+										담기</button>
+								</div>
+							</c:if>
 						</div>
 					</div>
 				</div>

@@ -5,11 +5,12 @@
 $(document).ready(function() {
 	$("#insertList").click(function() {
 		var id = $("#id").val();
-		var bookcode = $("#bookcode").val();
+		var bookCode = $("#bookCode").val();
 		var query = {
 			id : id,
-			book : bookcode
+			bookCode : bookCode
 		};
+		//alert("list에 담겼습니다.");
 		$.ajax({
 			type : "POST",
 			url : "/BookR/book/list.do",
