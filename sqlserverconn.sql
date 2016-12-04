@@ -41,6 +41,7 @@ sub_code int foreign key references SUB_CATEGORY (code)
 select * from BOOK;
 --drop table BOOK;
 select top(3) * from BOOK where main_code=2;
+select * from Book where code=2;
 
 
 ---------------------------------------------------------------------------------

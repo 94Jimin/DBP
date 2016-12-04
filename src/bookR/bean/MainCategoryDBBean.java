@@ -45,18 +45,18 @@ public class MainCategoryDBBean {
 
 			pstmt = conn.prepareStatement("select * from MAIN_CATEGORY");
 			rs = pstmt.executeQuery();
-			if (rs.next()){
+			if (rs.next()) {
 				mainList = new ArrayList<MainCategoryDataBean>();
 				do {
 					MainCategoryDataBean category = new MainCategoryDataBean();
-					
+
 					category.setCode(rs.getInt("code"));
 					category.setName(rs.getString("name"));
-					
+
 					mainList.add(category);
-				} while(rs.next());
+				} while (rs.next());
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -76,7 +76,51 @@ public class MainCategoryDBBean {
 				} catch (SQLException ex) {
 				}
 		}
-		
+
 		return mainList;
+	}
+
+	public MainCategoryDataBean getMainCategory(int code) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MainCategoryDataBean mainCategory = null;
+
+		try {
+			conn = getConnection();
+
+			pstmt = conn
+					.prepareStatement("select * from MAIN_CATEGORY where code=?;");
+			pstmt.setInt(1, code);
+
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				mainCategory = new MainCategoryDataBean();
+
+				mainCategory.setCode(rs.getInt("code"));
+				mainCategory.setName(rs.getString("name"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+
+		return mainCategory;
 	}
 }

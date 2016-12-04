@@ -34,7 +34,7 @@ public class BookDBBean {
 		return ds.getConnection();
 	}
 
-	public List<BookDataBean> getTop3Book(int main_code) {
+/*	public List<BookDataBean> getTop3Book(int main_code) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -82,7 +82,7 @@ public class BookDBBean {
 		}
 
 		return bookList;
-	}
+	}*/
 
 	public BookDataBean[] getBooks(int main_code, int count) throws Exception {
 		Connection conn = null;
@@ -139,6 +139,53 @@ public class BookDBBean {
 				}
 		}
 		return bookList;
+	}
+	
+	public BookDataBean getBookInfo (int code) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		BookDataBean book = null;
+		
+		try{
+			conn = getConnection();
+
+			String sql = "select * from BOOK where code=?;";
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, code);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				book = new BookDataBean();
+				
+				book.setCode(rs.getInt("code"));
+				book.setSubject(rs.getString("subject"));
+				book.setWriter(rs.getString("writer"));
+				book.setPublisher(rs.getString("publisher"));
+				book.setMain_code(rs.getInt("main_code"));
+				book.setSub_code(rs.getInt("sub_code"));
+			}
+		}  catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return book;
 	}
 	
 }

@@ -15,53 +15,11 @@
 <link
 	href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
 	rel="stylesheet" type="text/css">
-<link
-	href="..\Google 드라이브\2_학교\3학년 2학기\5_데이터베이스프로젝트\프로젝트 이미지\bookInfo.css"
-	rel="stylesheet" type="text/css">
+<link href="/BookR/css/bookInfo.css" rel="stylesheet" type="text/css">
 <title>첵 제목 : BookR</title>
 </head>
 <body>
-	<div class="navbar navbar-default navbar-static-top">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="../main.jsp"><span>BookR</span></a>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="user/userInfo.jsp">박지민님</a></li>
-					<li><a href="logon/login.jsp">sign in</a></li>
-					<li><a href="logon/signup.jsp">sign up</a></li>
-					<li><a href="#">sign out</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="section">
-		<div class="container">
-			<div class="row" vertical-align="middle">
-				<div class="col-md-2 text-justify">
-					<img
-						src="..\Google 드라이브\2_학교\3학년 2학기\5_데이터베이스프로젝트\프로젝트 이미지\BookR.png"
-						class="img-responsive">
-				</div>
-				<div class="col-md-10" vertical-align="middle">
-					<form class="form-horizontal" role="form">
-						<div class="form-group has-feedback">
-							<div class="col-sm-10 text-center">
-								<input type="text" class="form-control input-lg"
-									placeholder="책을 검색하세요">
-							</div>
-							<div class="col-sm-2 text-center">
-								<button type="submit" class="btn btn-block btn-default btn-lg">
-									<i class="fa fa-fw fa-search"></i>검색
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="/header.jsp"></jsp:include>
 	<div class="section">
 		<div class="container">
 			<div class="row">
@@ -71,24 +29,21 @@
 						class="img-responsive">
 				</div>
 				<div class="col-md-9">
-					<div class="page-header">
-						<h6>분류?</h6>
-					</div>
+
 					<div class="row">
 						<div class="col-md-12">
 							<div class="page-header">
-								<h1>제목</h1>
+								<h6>${mainCategory } > ${subCategory }</h6>
+								<h1>${book.getSubject() }</h1>
 							</div>
 							<div class="page-header">
-								<h4>작가/역자</h4>
+								<h4>${book.getWriter() }</h4>
 							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="page-header">
-										<h4>출판사</h4>
-									</div>
-								</div>
+							<div class="page-header">
+								<h4>${book.getPublisher() }</h4>
 							</div>
+
+
 						</div>
 					</div>
 				</div>

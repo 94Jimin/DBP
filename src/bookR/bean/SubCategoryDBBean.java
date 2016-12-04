@@ -33,8 +33,9 @@ public class SubCategoryDBBean {
 		}
 		return ds.getConnection();
 	}
-	
-	public List<SubCategoryDataBean> getSubCategoryList(int main_code) throws Exception {
+
+	public List<SubCategoryDataBean> getSubCategoryList(int main_code)
+			throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -43,22 +44,23 @@ public class SubCategoryDBBean {
 		try {
 			conn = getConnection();
 
-			pstmt = conn.prepareStatement("select * from SUB_CATEGORY where main_code=?");
+			pstmt = conn
+					.prepareStatement("select * from SUB_CATEGORY where main_code=?");
 			pstmt.setInt(1, main_code);
 			rs = pstmt.executeQuery();
-			if (rs.next()){
+			if (rs.next()) {
 				subList = new ArrayList<SubCategoryDataBean>();
 				do {
 					SubCategoryDataBean category = new SubCategoryDataBean();
-					
+
 					category.setCode(rs.getInt("code"));
 					category.setName(rs.getString("name"));
 					category.setMain_code(rs.getInt("main_code"));
-					
+
 					subList.add(category);
-				} while(rs.next());
+				} while (rs.next());
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -78,7 +80,52 @@ public class SubCategoryDBBean {
 				} catch (SQLException ex) {
 				}
 		}
-		
+
 		return subList;
+	}
+
+	public SubCategoryDataBean getSubCategory(int code) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		SubCategoryDataBean subCategory = null;
+
+		try {
+			conn = getConnection();
+
+			pstmt = conn
+					.prepareStatement("select * from SUB_CATEGORY where code=?;");
+			pstmt.setInt(1, code);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				subCategory = new SubCategoryDataBean();
+
+				subCategory.setCode(rs.getInt("code"));
+				subCategory.setName(rs.getString("name"));
+				subCategory.setMain_code(rs.getInt("main_code"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+
+		return subCategory;
 	}
 }
