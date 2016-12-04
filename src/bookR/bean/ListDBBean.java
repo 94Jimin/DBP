@@ -201,19 +201,18 @@ public class ListDBBean {
 		try {
 			conn = getConnection();
 
-			sql = "select * from LIST where id=? order by list_code;";
+			sql = "select distinct list_code from LIST where id=? order by list_code;";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 
 			rs = pstmt.executeQuery();
-			if (rs.next()) { // 이미 list가 존재
+			if (rs.next()) { 
 				lists = new ArrayList<ListDataBean>();
 
 				do {
 					ListDataBean list = new ListDataBean();
 					list.setId(id);
 					list.setListCode(rs.getString("list_code"));
-					list.setBookCode(rs.getInt("book_code"));
 
 					lists.add(list);
 				} while (rs.next());

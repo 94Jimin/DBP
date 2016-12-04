@@ -99,6 +99,7 @@ create clustered index LIST_TABLE on LIST (id,list_code,book_code);
 select * from LIST;
 --drop table LIST;
 select list_code from LIST where id='admin' order by list_code;
+select distinct list_code from LIST where id='admin' order by list_code;
 insert into LIST values('admin','admin_1',1);
 insert into LIST values('admin','admin_2',1);
 insert into LIST values('admin','admin_2',2);

@@ -17,7 +17,7 @@
 <title>BookR : 리스트 목록</title>
 </head>
 <body>
-	<jsp:include page="/header.jsp"/>
+	<jsp:include page="/header.jsp" />
 	<div class="section">
 		<div class="container">
 			<div class="row">
@@ -25,10 +25,16 @@
 					<h2 class="text-center">List 목록</h2>
 					<table class="table">
 						<tbody>
-							<tr>
-								<td>List 1</td>
-								<td><a href="/BookR/user/list.do">List 2</a></td>
-							</tr>
+							<%
+								int i = 1;
+							%>
+							<c:forEach var="list" items="${lists }">
+								<tr>
+									<td>#<%=i++%></td>
+									<td><a
+										href="/BookR/user/list.do?listCode=${list.getListCode()}">${list.getListCode() }</a></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>
