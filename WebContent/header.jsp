@@ -10,11 +10,17 @@
 		<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<c:if test="${!empty sessionScope.id }">
-					<li><a href="/BookR/user/info.do">${sessionScope.id } 님</a></li>
+					<li><a href="/BookR/user/info.do?id=${sessionScope.id}">${sessionScope.id }
+							님</a></li>
+					<li><a href="#">sign in</a></li>
+					<li><a href="#">sign up</a></li>
+					<li><a href="/BookR/logout.do">log out</a></li>
 				</c:if>
-				<li><a href="/BookR/login.do">sign in</a></li>
-				<li><a href="/BookR/signup.do">sign up</a></li>
-				<li><a href="/BookR/logout.do">log out</a></li>
+				<c:if test="${!empty sessionScope.id }">
+					<li><a href="/BookR/login.do">sign in</a></li>
+					<li><a href="/BookR/signup.do">sign up</a></li>
+					<li><a href="#">log out</a></li>
+				</c:if>
 			</ul>
 		</div>
 	</div>
