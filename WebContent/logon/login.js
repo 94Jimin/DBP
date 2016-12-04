@@ -13,7 +13,7 @@ $(document).ready(function() {
 			url : "/BookR/loginPro.do",
 			data : query,
 			success : function(data) {
-				window.location.href="/BookR/index.do";
+				window.location.href="/BookR/index.do?main_code=200";
 			}
 		});
 		
