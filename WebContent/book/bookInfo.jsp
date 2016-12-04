@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,7 +17,8 @@
 	href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
 	rel="stylesheet" type="text/css">
 <link href="/BookR/css/bookInfo.css" rel="stylesheet" type="text/css">
-<title>√Ω ¡¶∏Ò : BookR</title>
+<script type="text/javascript" src="bookInfo.js"></script>
+<title>Ï≤µ Ï†úÎ™© : BookR</title>
 </head>
 <body>
 	<jsp:include page="/header.jsp"></jsp:include>
@@ -33,7 +35,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="page-header">
-								<h6>${mainCategory } > ${subCategory }</h6>
+								<h6>${mainCategory }>${subCategory }</h6>
 								<h1>${book.getSubject() }</h1>
 							</div>
 							<div class="page-header">
@@ -42,8 +44,13 @@
 							<div class="page-header">
 								<h4>${book.getPublisher() }</h4>
 							</div>
-
-
+							<%-- <c:if test="${!empty sessionScope.id }"> --%>
+							<div class="page-header">
+							<input type="hidden" id="id" value="${sessionScope.id }"/>
+							<input type="hidden" id="bookcode" value="${book.getCode() }"/>
+								<button type="submit" id="insetList" class="btn btn-primary">Î¶¨Ïä§Ìä∏Ïóê Îã¥Í∏∞</button>
+							</div>
+							<%-- </c:if> --%>
 						</div>
 					</div>
 				</div>
@@ -60,7 +67,7 @@
 								<textarea></textarea>
 							</div>
 							<div class="col-sm-3">
-								<button type="submit" class="btn btn-primary">∏Æ∫‰ ≥≤±‚±‚</button>
+								<button type="submit" class="btn btn-primary">Î¶¨Î∑∞ ÎÇ®Í∏∞Í∏∞</button>
 							</div>
 						</div>
 					</form>
@@ -69,11 +76,11 @@
 			<div class="row">
 				<div class="col-md-3">
 					<div class="page-header">
-						<h1>¿€º∫¿⁄</h1>
+						<h1>ÏûëÏÑ±Ïûê</h1>
 					</div>
 				</div>
 				<div class="col-md-9">
-					<p>≥ªøÎ</p>
+					<p>ÎÇ¥Ïö©</p>
 				</div>
 			</div>
 		</div>
