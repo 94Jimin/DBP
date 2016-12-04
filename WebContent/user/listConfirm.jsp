@@ -17,18 +17,24 @@
 <title>BookR : 리스트목록 확인</title>
 </head>
 <body>
-	<jsp:include page="/header.jsp"/>
+	<jsp:include page="/header.jsp" />
 	<div class="section">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 class="text-center">List 1 목록</h2>
+					<h2 class="text-center">${listCode }목록</h2>
 					<table class="table">
 						<tbody>
-							<tr>
-								<td>1번</td>
-								<td><a>책 이름</a></td>
-							</tr>
+							<%
+								int i = 1;
+							%>
+							<c:forEach var="book" items="${books }">
+								<tr>
+									<td>#<%=i++%></td>
+									<td><a
+										href="/BookR/book/info.do?book_code=${book.getCode() }">${book }</a></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 						<thead>
 							<tr>

@@ -100,6 +100,7 @@ select * from LIST;
 --drop table LIST;
 select list_code from LIST where id='admin' order by list_code;
 select distinct list_code from LIST where id='admin' order by list_code;
+select book_code from LIST where list_code='admin_1';
 insert into LIST values('admin','admin_1',1);
 insert into LIST values('admin','admin_2',1);
 insert into LIST values('admin','admin_2',2);

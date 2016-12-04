@@ -33,6 +33,7 @@
 									<td>#<%=i++%></td>
 									<td><a
 										href="/BookR/user/list.do?listCode=${list.getListCode()}">${list.getListCode() }</a></td>
+									<%-- <a href="/BookR/user/list.do?listCode=${list.getListCode()}">${list.getListCode() }</a> --%>
 								</tr>
 							</c:forEach>
 						</tbody>

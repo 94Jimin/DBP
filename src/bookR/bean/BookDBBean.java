@@ -34,62 +34,40 @@ public class BookDBBean {
 		return ds.getConnection();
 	}
 
-/*	public List<BookDataBean> getTop3Book(int main_code) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		List<BookDataBean> bookList = null;
-
-		try {
-			conn = getConnection();
-
-			pstmt = conn
-					.prepareStatement("select top(3) * from BOOK where main_code=?;");
-			pstmt.setInt(1, main_code);
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-				bookList = new ArrayList<BookDataBean>();
-
-				do {
-					BookDataBean books = new BookDataBean();
-
-					books.setCode(rs.getInt("code"));
-					books.setSubject(rs.getString("subject"));
-
-					bookList.add(books);
-				} while (rs.next());
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (rs != null)
-				try {
-					rs.close();
-				} catch (SQLException ex) {
-				}
-			if (pstmt != null)
-				try {
-					pstmt.close();
-				} catch (SQLException ex) {
-				}
-			if (conn != null)
-				try {
-					conn.close();
-				} catch (SQLException ex) {
-				}
-		}
-
-		return bookList;
-	}*/
+	/*
+	 * public List<BookDataBean> getTop3Book(int main_code) { Connection conn =
+	 * null; PreparedStatement pstmt = null; ResultSet rs = null;
+	 * List<BookDataBean> bookList = null;
+	 * 
+	 * try { conn = getConnection();
+	 * 
+	 * pstmt = conn
+	 * .prepareStatement("select top(3) * from BOOK where main_code=?;");
+	 * pstmt.setInt(1, main_code); rs = pstmt.executeQuery();
+	 * 
+	 * if (rs.next()) { bookList = new ArrayList<BookDataBean>();
+	 * 
+	 * do { BookDataBean books = new BookDataBean();
+	 * 
+	 * books.setCode(rs.getInt("code"));
+	 * books.setSubject(rs.getString("subject"));
+	 * 
+	 * bookList.add(books); } while (rs.next()); }
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); } finally { if (rs != null)
+	 * try { rs.close(); } catch (SQLException ex) { } if (pstmt != null) try {
+	 * pstmt.close(); } catch (SQLException ex) { } if (conn != null) try {
+	 * conn.close(); } catch (SQLException ex) { } }
+	 * 
+	 * return bookList; }
+	 */
 
 	public BookDataBean[] getBooks(int main_code, int count) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		BookDataBean bookList[] = null;
-		int i=0;
+		int i = 0;
 
 		try {
 			conn = getConnection();
@@ -114,7 +92,7 @@ public class BookDBBean {
 					books.setMain_code(rs.getInt("main_code"));
 					books.setSub_code(rs.getInt("sub_code"));
 
-					bookList[i]=books;
+					bookList[i] = books;
 					i++;
 				} while (rs.next());
 			}
@@ -140,14 +118,54 @@ public class BookDBBean {
 		}
 		return bookList;
 	}
-	
-	public BookDataBean getBookInfo (int code) throws Exception{
+
+	public String getBookSubject(int code) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String subject = null;
+
+		try {
+			conn = getConnection();
+
+			String sql = "select subject from BOOK where code=?;";
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, code);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				subject = rs.getString("subject");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return subject;
+	}
+
+	public BookDataBean getBookInfo(int code) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		BookDataBean book = null;
-		
-		try{
+
+		try {
 			conn = getConnection();
 
 			String sql = "select * from BOOK where code=?;";
@@ -158,7 +176,7 @@ public class BookDBBean {
 
 			if (rs.next()) {
 				book = new BookDataBean();
-				
+
 				book.setCode(rs.getInt("code"));
 				book.setSubject(rs.getString("subject"));
 				book.setWriter(rs.getString("writer"));
@@ -166,7 +184,7 @@ public class BookDBBean {
 				book.setMain_code(rs.getInt("main_code"));
 				book.setSub_code(rs.getInt("sub_code"));
 			}
-		}  catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			if (rs != null)
@@ -187,5 +205,5 @@ public class BookDBBean {
 		}
 		return book;
 	}
-	
+
 }

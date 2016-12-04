@@ -19,6 +19,8 @@ public class UserInfoAction implements CommandAction {
 		ListDBBean listProcess = ListDBBean.getInstance();
 		List<ListDataBean> lists = listProcess.getListList(id);
 		
+		//System.out.println(lists.get(0).getListCode());
+		
 		request.setAttribute("lists", lists);
 		return "/user/userInfo.jsp";
 	}

@@ -78,7 +78,7 @@ public class ListDBBean {
 		return listCode;
 	}
 
-	public void insertList(String id,String listCode, int bookCode) {
+	public void insertList(String id, String listCode, int bookCode) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
@@ -148,41 +148,24 @@ public class ListDBBean {
 		return x;
 	}
 
-	/*public int getListCode(int bookCode) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = null;
-		int listCode = 0;
-
-		try {
-			conn = getConnection();
-
-			sql = "select * from LIST_BOOK where book_code=?;";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, bookCode);
-
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				listCode = rs.getInt("list_code");
-			}
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-			if (pstmt != null)
-				try {
-					pstmt.close();
-				} catch (SQLException ex) {
-				}
-			if (conn != null)
-				try {
-					conn.close();
-				} catch (SQLException ex) {
-				}
-		}
-		return listCode;
-	}*/
+	/*
+	 * public int getListCode(int bookCode) { Connection conn = null;
+	 * PreparedStatement pstmt = null; ResultSet rs = null; String sql = null;
+	 * int listCode = 0;
+	 * 
+	 * try { conn = getConnection();
+	 * 
+	 * sql = "select * from LIST_BOOK where book_code=?;"; pstmt =
+	 * conn.prepareStatement(sql); pstmt.setInt(1, bookCode);
+	 * 
+	 * rs = pstmt.executeQuery(); if (rs.next()) { listCode =
+	 * rs.getInt("list_code"); }
+	 * 
+	 * } catch (Exception ex) { ex.printStackTrace(); } finally { if (pstmt !=
+	 * null) try { pstmt.close(); } catch (SQLException ex) { } if (conn !=
+	 * null) try { conn.close(); } catch (SQLException ex) { } } return
+	 * listCode; }
+	 */
 
 	/*
 	 * public String nextFind(String str){ String array =
@@ -206,7 +189,7 @@ public class ListDBBean {
 			pstmt.setString(1, id);
 
 			rs = pstmt.executeQuery();
-			if (rs.next()) { 
+			if (rs.next()) {
 				lists = new ArrayList<ListDataBean>();
 
 				do {
@@ -233,6 +216,45 @@ public class ListDBBean {
 		}
 
 		return lists;
+	}
+
+	public int[] getBookCodeList(String listCode) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		int codes[] = null;
+
+		try {
+			conn = getConnection();
+
+			sql = "select book_code from LIST where list_code=?;";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, listCode);
+
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				int i = 0;
+				do {
+					codes[i++] = rs.getInt("book_code");
+				} while (rs.next());
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+
+		return codes;
 	}
 
 }
