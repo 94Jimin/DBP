@@ -61,21 +61,48 @@ select * from Book where code=2;
 ---------------------------------------------------------------------------------
 -- list 관련 테이블 
 
-create table LIST_BOOK (
-list_code int identity(1, 1) primary key not null,
-book_code int foreign key references BOOK (code)
-);
-select * from LIST_BOOK;
---drop table LIST_BOOK;
+--create table LIST_BOOK (
+--list_num int identity(1,1) primary key not null,
+--list_code varchar(30) not null,
+--book_code int foreign key references BOOK (code)
+--);
+--select * from LIST_BOOK;
+----drop table LIST_BOOK;
+--select * from LIST_BOOK where book_code=?;
+--select list_code from LIST_BOOK where book_code=1;
+--insert into LIST_BOOK(list_code,book_code) values ('admin_1',1);
+--insert into LIST_BOOK(list_code,book_code) values ('admin_2',1);
+--insert into LIST_BOOK(list_code,book_code) values ('admin_2',2);
+--insert into LIST_BOOK(list_code,book_code) values ('admin_1',3);
+
+--create table LIST (
+--id varchar(50) foreign key references MEMBER (id),
+--list_num int foreign key references LIST_BOOK (list_num)
+--);
+----인덱스 생성
+--create clustered index LIST_TABLE on LIST (id,list_num);
+--select * from LIST;
+----drop table LIST;
+--select * from LIST where id='admin' order by list_num;
+--insert into LIST values('admin',1);
+--insert into LIST values('admin',2);
+--insert into LIST values('admin',3);
+--insert into LIST values('admin',4);
 
 create table LIST (
 id varchar(50) foreign key references MEMBER (id),
-list_code int foreign key references LIST_BOOK (list_code)
+list_code varchar(30) not null,
+book_code int foreign key references BOOK (code)
 );
 --인덱스 생성
-create clustered index LIST_TABLE on LIST (id,list_code);
+create clustered index LIST_TABLE on LIST (id,list_code,book_code);
 select * from LIST;
 --drop table LIST;
+select list_code from LIST where id='admin' order by list_code;
+insert into LIST values('admin','admin_1',1);
+insert into LIST values('admin','admin_2',1);
+insert into LIST values('admin','admin_2',2);
+insert into LIST values('admin','admin_1',3);
 
 ---------------------------------------------------------------------------------
 -- 카테고리 만들기
