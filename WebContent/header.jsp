@@ -16,7 +16,7 @@
 					<li><a href="#">sign up</a></li>
 					<li><a href="/BookR/logout.do">log out</a></li>
 				</c:if>
-				<c:if test="${!empty sessionScope.id }">
+				<c:if test="${empty sessionScope.id }">
 					<li><a href="/BookR/login.do">sign in</a></li>
 					<li><a href="/BookR/signup.do">sign up</a></li>
 					<li><a href="#">log out</a></li>
