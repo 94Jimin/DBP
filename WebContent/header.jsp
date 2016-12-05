@@ -5,7 +5,7 @@
 <div class="navbar navbar-default navbar-static-top">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#"><span>BookR</span></a>
+			<a class="navbar-brand" href="/BookR/index.do?main_code=200"><span>BookR</span></a>
 		</div>
 		<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 			<ul class="nav navbar-nav navbar-right">
@@ -29,7 +29,9 @@
 	<div class="container">
 		<div class="row" vertical-align="middle">
 			<div class="col-md-2 text-justify">
-				<img src="/BookR/image/BookR_green.png" class="img-responsive">
+				<a href="/BookR/index.do?main_code=200"> <img
+					src="/BookR/image/BookR_green.png" class="img-responsive">
+				</a>
 			</div>
 			<div class="col-md-10" vertical-align="middle">
 				<form class="form-horizontal" role="form">
