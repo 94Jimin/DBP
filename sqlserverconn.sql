@@ -106,6 +106,26 @@ insert into LIST values('admin','admin_2',1);
 insert into LIST values('admin','admin_2',2);
 insert into LIST values('admin','admin_1',3);
 
+--------------------------------------------------------------
+create table REVIEW_GRADE (
+id varchar(50) foreign key references MEMBER (id),
+book_code int foreign key references BOOK (code),
+review varchar(100),
+--grade int
+);
+--drop table  REVIEW_GRADE;
+create clustered index RG_TABLE on REVIEW_GRADE (id,book_code);
+ALTER TABLE REVIEW_GRADE add grade int CONSTRAINT id_default DEFAULT 0 with values;
+select * from REVIEW_GRADE;
+select * from REVIEW_GRADE where id='admin' and book_code='2';
+insert into REVIEW_GRADE values('admin',2,'최고입니다.',3);
+insert into REVIEW_GRADE values('admin',3,'',3);
+update REVIEW_GRADE set review='굿이에요' where id='admin' and book_code=3;
+update REVIEW_GRADE set review='',grade=2 where id='admin' and book_code=1;
+select * from REVIEW_GRADE where book_code=2;
+select * from REVIEW_GRADE where book_code=1 and id='admin';
+
+
 ---------------------------------------------------------------------------------
 -- 카테고리 만들기
 

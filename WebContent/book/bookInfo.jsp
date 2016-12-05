@@ -62,28 +62,90 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<form class="form-horizontal" role="form">
+					<form class="form-horizontal" role="form" method="post">
 						<div class="form-group">
-							<div class="col-sm-7">
-								<textarea></textarea>
+							<div class="col-sm-4">
+								<h4>별점</h4>
+								<select id="grade" name="grade">
+									<c:set var="grade" value="${grade }" />
+									<c:choose>
+										<c:when test="${grade == 1}">
+											<option value="0">별점을 매겨주세요</option>
+											<option value="5">5</option>
+											<option value="4">4</option>
+											<option value="3">3</option>
+											<option value="2">2</option>
+											<option value="1" selected>1</option>
+										</c:when>
+										<c:when test="${grade eq 2}">
+											<option value="0">별점을 매겨주세요</option>
+											<option value="5">5</option>
+											<option value="4">4</option>
+											<option value="3">3</option>
+											<option value="2" selected>2</option>
+											<option value="1">1</option>
+										</c:when>
+										<c:when test="${grade eq 3}">
+											<option value="0">별점을 매겨주세요</option>
+											<option value="5">5</option>
+											<option value="4">4</option>
+											<option value="3" selected>3</option>
+											<option value="2">2</option>
+											<option value="1">1</option>
+										</c:when>
+										<c:when test="${grade eq 4}">
+											<option value="0">별점을 매겨주세요</option>
+											<option value="5">5</option>
+											<option value="4" selected>4</option>
+											<option value="3">3</option>
+											<option value="2">2</option>
+											<option value="1">1</option>
+										</c:when>
+										<c:when test="${grade eq 5}">
+											<option value="0">별점을 매겨주세요</option>
+											<option value="5" selected>5</option>
+											<option value="4">4</option>
+											<option value="3">3</option>
+											<option value="2">2</option>
+											<option value="1">1</option>
+										</c:when>
+										<c:otherwise>
+											<option value="0" selected>별점을 매겨주세요</option>
+											<option value="5">5</option>
+											<option value="4">4</option>
+											<option value="3">3</option>
+											<option value="2">2</option>
+											<option value="1">1</option>
+										</c:otherwise>
+
+									</c:choose>
+								</select>
 							</div>
+							<div class="col-sm-5">
+								<textarea id="review" name="review" cols="50">${review }</textarea>
+							</div>
+
 							<div class="col-sm-3">
-								<button type="submit" class="btn btn-primary">리뷰 남기기</button>
+								<input type="hidden" id="idRG" value="${sessionScope.id }" /> <input
+									type="hidden" id="bookCodeRG" value="${book.getCode() }" />
+								<button type="submit" class="btn btn-primary" id="review_grade">리뷰남기기</button>
 							</div>
 						</div>
 					</form>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-3">
-					<div class="page-header">
-						<h1>작성자</h1>
+			<c:forEach var="list" items="${rgLists }">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="page-header">
+							<h1>${list.getId() }</h1>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<p>${list.getReview() }</p>
 					</div>
 				</div>
-				<div class="col-md-9">
-					<p>내용</p>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
 	</div>
 </body>

@@ -38,7 +38,7 @@
 										<a href="#"> <img
 											src="https://unsplash.imgix.net/reserve/QTrNn7DETWGsjyS5L2n5__MG_8345.jpg?w=1024&amp;q=50&amp;fm=jpg&amp;s=f89d9bb3940033eca06ed432a250bb6d"
 											class="img-responsive"></a> <a
-											href="/BookR/book/info.do?book_code=${book.getCode() }">
+											href="/BookR/book/info.do?book_code=${book.getCode() }&id=${sessionScope.id}">
 											<h3 class="text-center">${book.getSubject() }</h3>
 										</a>
 									</div>
