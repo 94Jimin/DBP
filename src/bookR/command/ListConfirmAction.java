@@ -19,24 +19,12 @@ public class ListConfirmAction implements CommandAction {
 
 		String listCode = request.getParameter("listCode");
 
-		
 		ListDBBean listProcess = ListDBBean.getInstance();
-		int[] codes = listProcess.getBookCodeList(listCode);
-		
+		List<ListDataBean> lists = listProcess.getBookCodeList(listCode);
+
 		BookDBBean bookProcess = BookDBBean.getInstance();
-		List<BookDataBean> books = new ArrayList<BookDataBean>();
-		//String bookSubject[] = null;
-		
-		/*if (codes.length>0){
-			books = bookProcess.getBooksInfo(codes);
-			request.setAttribute("books", books);
-		}*/
-		//books = bookProcess.getBooksInfo(codes);
-		for (int list : codes){
-			//bookSubject[i] = bookProcess.getBookSubject(list);
-			books.add(bookProcess.getBookInfo(list));
-		}
-		
+		List<BookDataBean> books = bookProcess.getMyListBook(lists);
+
 		request.setAttribute("books", books);
 
 		return "/user/listConfirm.jsp";

@@ -148,32 +148,6 @@ public class ListDBBean {
 		return x;
 	}
 
-	/*
-	 * public int getListCode(int bookCode) { Connection conn = null;
-	 * PreparedStatement pstmt = null; ResultSet rs = null; String sql = null;
-	 * int listCode = 0;
-	 * 
-	 * try { conn = getConnection();
-	 * 
-	 * sql = "select * from LIST_BOOK where book_code=?;"; pstmt =
-	 * conn.prepareStatement(sql); pstmt.setInt(1, bookCode);
-	 * 
-	 * rs = pstmt.executeQuery(); if (rs.next()) { listCode =
-	 * rs.getInt("list_code"); }
-	 * 
-	 * } catch (Exception ex) { ex.printStackTrace(); } finally { if (pstmt !=
-	 * null) try { pstmt.close(); } catch (SQLException ex) { } if (conn !=
-	 * null) try { conn.close(); } catch (SQLException ex) { } } return
-	 * listCode; }
-	 */
-
-	/*
-	 * public String nextFind(String str){ String array =
-	 * "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"; String arr[] =
-	 * array.split(","); String result = null; int i =0; while (i<=arr.length){
-	 * if (arr[i].equals(str)){ result = arr[i++]; } i++; } return result; }
-	 */
-
 	public List<ListDataBean> getListList(String id) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -218,25 +192,31 @@ public class ListDBBean {
 		return lists;
 	}
 
-	public int[] getBookCodeList(String listCode) {
+	public List<ListDataBean> getBookCodeList(String listCode) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = null;
-		int codes[] = null;
+		List<ListDataBean> lists = null;
 
 		try {
 			conn = getConnection();
 
-			sql = "select book_code from LIST where list_code=?;";
+			sql = "select * from LIST where list_code=?;";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, listCode);
 
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				int i = 0;
+				lists = new ArrayList<ListDataBean>();
 				do {
-					codes[i++] = rs.getInt("book_code");
+					ListDataBean list = new ListDataBean();
+					
+					list.setId(rs.getString("id"));
+					list.setListCode(rs.getString("list_code"));
+					list.setBookCode(rs.getInt("book_code"));
+
+					lists.add(list);
 				} while (rs.next());
 			}
 		} catch (Exception ex) {
@@ -254,7 +234,7 @@ public class ListDBBean {
 				}
 		}
 
-		return codes;
+		return lists;
 	}
 
 }

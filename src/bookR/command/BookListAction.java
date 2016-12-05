@@ -22,7 +22,7 @@ public class BookListAction implements CommandAction {
 		String listCode = null;
 
 		int x = listProcess.confirmListNum(id);
-		listCode = listProcess.generateListCode(id, x);
+		listCode = listProcess.generateListCode(id, x); //list 코드 만들기
 		
 		listProcess.insertList(id, listCode, bookCode);
 

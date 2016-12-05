@@ -14,6 +14,7 @@
 	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="/BookR/css/userInfo.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="userInfo.js"></script>
 <title>BookR : 리스트 목록</title>
 </head>
 <body>
@@ -23,21 +24,36 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h2 class="text-center">List 목록</h2>
-					<table class="table">
-						<tbody>
-							<%
+					<form method="post">
+						<table class="table">
+							<tbody>
+								<%-- <%
 								int i = 1;
 							%>
 							<c:forEach var="list" items="${lists }">
 								<tr>
 									<td>#<%=i++%></td>
 									<td><a
-										href="/BookR/user/list.do?listCode=${list.getListCode()}">${list.getListCode() }</a></td>
-									<%-- <a href="/BookR/user/list.do?listCode=${list.getListCode()}">${list.getListCode() }</a> --%>
+										href="/BookR/user/list.do?listCode=${list.getListCode()}">${list.getListCode() }
+									</a></td>
+									<a href="/BookR/user/list.do?listCode=${list.getListCode()}">${list.getListCode() }</a>
 								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+							</c:forEach> --%>
+
+								<%
+									int i = 1;
+								%>
+								<c:forEach var="list" items="${lists }">
+									<tr>
+										<td>#<%=i++%></td>
+										<td><a
+											href="/BookR/user/listConfirm.do?listCode=${list.getListCode()}">${list.getListCode() }</a>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</form>
 				</div>
 			</div>
 		</div>

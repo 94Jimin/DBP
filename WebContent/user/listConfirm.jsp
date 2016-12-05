@@ -32,7 +32,7 @@
 								<tr>
 									<td>#<%=i++%></td>
 									<td><a
-										href="/BookR/book/info.do?book_code=${book.getCode() }">${book }</a></td>
+										href="/BookR/book/info.do?book_code=${book.getCode() }&id=${sessionScope.id}">${book.getSubject() }</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

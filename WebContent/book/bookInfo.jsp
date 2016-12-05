@@ -48,8 +48,7 @@
 								<div class="page-header">
 									<input type="hidden" id="id" value="${sessionScope.id }" /> <input
 										type="hidden" id="bookCode" value="${book.getCode() }" />
-									<button id="insertList" class="btn btn-primary">리스트에
-										담기</button>
+									<button id="insertList" class="btn btn-primary">리스트에담기</button>
 								</div>
 							</c:if>
 						</div>
