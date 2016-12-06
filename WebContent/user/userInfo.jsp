@@ -14,7 +14,7 @@
 	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="/BookR/css/userInfo.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="userInfo.js"></script>
+<!-- <script type="text/javascript" src="userInfo.js"></script> -->
 <title>BookR : 리스트 목록</title>
 </head>
 <body>

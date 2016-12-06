@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import bookR.bean.BookDBBean;
 import bookR.bean.BookDataBean;
+import bookR.bean.ListDBBean;
+import bookR.bean.ListDataBean;
 import bookR.bean.MainCategoryDBBean;
 import bookR.bean.MainCategoryDataBean;
 import bookR.bean.ReviewGradeDBBean;
@@ -44,6 +46,17 @@ public class BookInfoAction implements CommandAction {
 		request.setAttribute("rgLists", rgLists);
 		request.setAttribute("grade", grade);
 		request.setAttribute("review", review);
+		
+		//bookList의 리스트를 받아오는 코드가 필요..
+		ListDBBean listProcess = ListDBBean.getInstance();
+		List<ListDataBean> myLists = listProcess.getListList(id);
+		//bookcode가 들어있는 list_code를 알아오는 함수..
+		String listCode = listProcess.getListCode(bookCode, id);
+		
+		request.setAttribute("myLists", myLists);
+		request.setAttribute("listCode", listCode);
+		
+		
 		return "/book/bookInfo.jsp";
 	}
 

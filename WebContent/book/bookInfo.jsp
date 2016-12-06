@@ -46,9 +46,19 @@
 							</div>
 							<c:if test="${!empty sessionScope.id }">
 								<div class="page-header">
-									<input type="hidden" id="id" value="${sessionScope.id }" /> <input
+									<select id="listCode" name="listCode">
+										<option value="">담을 리스트를 선택해주세요</option>
+										<c:forEach var="myList" items="${myLists }">
+											<option value="${myList.getListCode() }">${myList.getListCode() }</option>
+										</c:forEach>
+									</select> <input type="hidden" id="id" value="${sessionScope.id }" /> <input
 										type="hidden" id="bookCode" value="${book.getCode() }" />
 									<button id="insertList" class="btn btn-primary">리스트에담기</button>
+									<%-- <h2>이 책은 list ${listCode }에 담겨있습니다.</h2> --%>
+
+									<button id="makeList" class="btn btn-primary">새 리스트
+										만들면서 리스트에 담기</button>
+
 								</div>
 							</c:if>
 						</div>

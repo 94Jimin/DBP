@@ -44,14 +44,18 @@ public class ListDBBean {
 		try {
 			conn = getConnection();
 
-			sql = "select list_code from LIST where id=? order by list_code;";
+			sql = "select distinct list_code,id from LIST where id=? order by list_code;";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 
 			rs = pstmt.executeQuery();
-			if (x == 1) { // 이미 list가 존재
+			if (rs.next()) {
+				ListDataBean list = new ListDataBean();
+				do {
+					list.setListCode(rs.getString("list_code"));
+				} while (rs.next());
 				String[] array = null;
-				listCode = rs.getString("list_code");
+				listCode = list.getListCode();
 				array = listCode.split("_");
 				String code = Integer.toString(Integer
 						.parseInt(array[array.length - 1]) + 1);
@@ -59,7 +63,6 @@ public class ListDBBean {
 			} else { // list를 처음 만듬
 				listCode = id + "_1";
 			}
-
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
@@ -211,7 +214,7 @@ public class ListDBBean {
 				lists = new ArrayList<ListDataBean>();
 				do {
 					ListDataBean list = new ListDataBean();
-					
+
 					list.setId(rs.getString("id"));
 					list.setListCode(rs.getString("list_code"));
 					list.setBookCode(rs.getInt("book_code"));
@@ -235,6 +238,42 @@ public class ListDBBean {
 		}
 
 		return lists;
+	}
+	
+	public String getListCode(int bookCode, String id){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		String listCode = "";
+
+		try {
+			conn = getConnection();
+
+			sql = "select * from LIST where book_code=? and id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bookCode);
+			pstmt.setString(2, id);
+
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				listCode=rs.getString("list_code");
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return listCode;
 	}
 
 }
