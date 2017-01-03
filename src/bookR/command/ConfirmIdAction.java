@@ -5,24 +5,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import bookR.bean.LogonDBBean;
 
-public class LoginProAction implements CommandAction {
+public class ConfirmIdAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse response) throws Throwable {
 		request.setCharacterEncoding("utf-8");
-		
 		String id = request.getParameter("id");
-		String passwd = request.getParameter("passwd");
 		
-		LogonDBBean dbPro = LogonDBBean.getInstance();
-		int check = dbPro.userCheck(id, passwd);
-		System.out.println(check);
+		LogonDBBean logonProcess = LogonDBBean.getInstance();
+		int check = logonProcess.confirmId(id);
 		
 		request.setAttribute("check", new Integer(check));
-		request.setAttribute("id", id);
 		
-		return "/logon/loginPro.jsp";
+		return "/logon/confirmId.jsp";
 	}
 
 }

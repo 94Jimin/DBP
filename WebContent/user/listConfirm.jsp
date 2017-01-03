@@ -14,6 +14,7 @@
 	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="/BookR/css/listConfirm.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="listConfirm.js"></script>
 <title>BookR : 리스트목록 확인</title>
 </head>
 <body>
@@ -31,15 +32,24 @@
 							<c:forEach var="book" items="${books }">
 								<tr>
 									<td>#<%=i++%></td>
+									<td><img src="/BookR/bookImage/${book.getImage() }"
+										height="100px" width="130px" class="img-responsive"></td>
 									<td><a
 										href="/BookR/book/info.do?book_code=${book.getCode() }&id=${sessionScope.id}">${book.getSubject() }</a></td>
+									<td>${book.getGrade() }</td>
+									<td><a
+										href="/BookR/user/deleteBook.do?bookCode=${book.getCode() }&bookName=${book.getSubject() }&id=${sessionScope.id }&listCode=${listCode}"
+										class="btn btn-primary">책 삭제</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
 						<thead>
 							<tr>
 								<th>#</th>
+								<th>책 표지</th>
 								<th>책 제목</th>
+								<th>별점</th>
+								<th>삭제버튼</th>
 							</tr>
 						</thead>
 					</table>

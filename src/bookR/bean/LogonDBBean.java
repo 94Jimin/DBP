@@ -37,7 +37,7 @@ public class LogonDBBean {
 		return ds.getConnection();
 	}
 
-	public void insertMember(LogonDataBean member) {
+	public void insertMember(LogonDataBean member) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
@@ -73,7 +73,7 @@ public class LogonDBBean {
 		}
 	}
 
-	public int userCheck(String id, String passwd) {
+	public int userCheck(String id, String passwd) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -91,15 +91,15 @@ public class LogonDBBean {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 
-			if (rs.next()) {// 해당 아이디가 있으면 수행
+			if (rs.next()) {// �빐�떦 �븘�씠�뵒媛� �엳�쑝硫� �닔�뻾
 				String dbpasswd = rs.getString("passwd");
 				if (BCrypt.checkpw(shaPass, dbpasswd))
-					x = 1; // 인증성공
+					x = 1; // �씤利앹꽦怨�
 				else
-					x = 0; // 비밀번호 틀림
+					x = 0; // 鍮꾨�踰덊샇 ��由�
 			} else
-				// 아이디가 없으면 수행
-				x = -1;// 아이디 없음
+				// �븘�씠�뵒媛� �뾾�쑝硫� �닔�뻾
+				x = -1;// �븘�씠�뵒 �뾾�쓬
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -123,7 +123,7 @@ public class LogonDBBean {
 		return x;
 	}
 
-	public int confirmId(String id) {
+	public int confirmId(String id) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -132,14 +132,14 @@ public class LogonDBBean {
 		try {
 			conn = getConnection();
 
-			pstmt = conn.prepareStatement("select id from member where id = ?");
+			pstmt = conn.prepareStatement("select id from MEMBER where id = ?");
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 
-			if (rs.next())//아이디 존재
-				x = 1; // 같은 아이디 있음
+			if (rs.next())
+				x = 1;
 			else
-				x = -1;// 같은 아이디 없음
+				x = -1;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {

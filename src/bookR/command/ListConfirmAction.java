@@ -26,6 +26,7 @@ public class ListConfirmAction implements CommandAction {
 		List<BookDataBean> books = bookProcess.getMyListBook(lists);
 
 		request.setAttribute("books", books);
+		request.setAttribute("listCode", listCode);
 
 		return "/user/listConfirm.jsp";
 	}

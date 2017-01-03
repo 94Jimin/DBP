@@ -11,14 +11,14 @@ $(document).ready( function() {
 			bookCode : bookCode,
 			listCode : listCode
 		};
-		alert("list에 담겼습니다.");
+		//alert("list에 담겼습니다.");
 		$.ajax({
 			type : "POST",
 			url : "/BookR/book/list.do",
 			data : query,
 			success : function(data) {
 				alert("list에 담겼습니다.");
-				window.location.href = "/BookR/book/info.do?book_code="+ bookCode"&id=" + id;
+				window.location.href = "/BookR/book/info.do?book_code="+ bookCode +"&id=" + id;
 			}
 		});
 	});
@@ -37,15 +37,15 @@ $(document).ready( function() {
 			data : query,
 			success : function(data) {
 				alert("리스트를 만들었습니다.");
-				window.location.href = "/BookR/book/info.do?book_code="+ bookCode"&id=" + id;
+				window.location.href = "/BookR/book/info.do?book_code="+ bookCode +"&id=" + id;
 			}
 		});
 	});
 
 	$("#review_grade").click(function() {
-		if (confirmReview() == 1) {
-			var id = $("#idRG").val();
-			var bookCode = $("#bookCodeRG").val();
+		if ($("#grade").val != 0) {
+			var id = $("#id").val();
+			var bookCode = $("#bookCode").val();
 			var review = $("#review").val();
 			var grade = $("#grade").val();
 			if (review == null) {
@@ -64,7 +64,7 @@ $(document).ready( function() {
 				data : query,
 				success : function(data) {
 					alert("rieview나 grade를 남겼습니다.");
-					window.location.href = "/BookR/book/info.do?book_code="+ bookCode + "&id=" + id;
+					window.location.href="/BookR/book/info.do?book_code="+bookCode+"&id="+id;
 				}
 			});
 		} else {

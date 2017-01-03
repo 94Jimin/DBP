@@ -17,9 +17,14 @@
 <title>BookR</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="/header.jsp"></jsp:include>
 	<div class="section">
 		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<a  href="/BookR/search/keyword.do" class="btn btn-primary">#키워드로 검색하기</a>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section">
@@ -33,16 +38,30 @@
 										</c:forEach>
 									</ul>
 								</div>
-								<c:forEach var="book" items="${bookList }">
-									<div class="col-md-3">
-										<a href="#"> <img
-											src="https://unsplash.imgix.net/reserve/QTrNn7DETWGsjyS5L2n5__MG_8345.jpg?w=1024&amp;q=50&amp;fm=jpg&amp;s=f89d9bb3940033eca06ed432a250bb6d"
-											class="img-responsive"></a> <a
-											href="/BookR/book/info.do?book_code=${book.getCode() }&id=${sessionScope.id}">
-											<h3 class="text-center">${book.getSubject() }</h3>
-										</a>
+								<div class="col-md-9">
+									<div class="row">
+										<c:forEach var="book" items="${bookList }">
+											<div class="col-md-4">
+												<a
+													href="/BookR/book/info.do?book_code=${book.getCode() }&id=${sessionScope.id}">
+													<img src="/BookR/bookImage/${book.getImage() }"
+													width="250px" height="330px">
+												</a> <a
+													href="/BookR/book/info.do?book_code=${book.getCode() }&id=${sessionScope.id}">
+													<h5 class="text-center">${book.getSubject() }</h5>
+												</a>
+											</div>
+										</c:forEach>
 									</div>
-								</c:forEach>
+									<!-- <div class="row">
+										<div class="col-md-12">
+											<ul class="pager">
+												<li><a href="#">← Prev</a></li>
+												<li><a href="#">Next →</a></li>
+											</ul>
+										</div>
+									</div> -->
+								</div>
 							</div>
 						</div>
 					</div>

@@ -5,8 +5,10 @@ public class BookDataBean {
 	private String subject;
 	private String writer;
 	private String publisher;
-	private int main_code;
-	private int sub_code;
+	private String image;
+	private float grade;
+	private int mainCode;
+	private int subCode;
 
 	public int getCode() {
 		return code;
@@ -40,20 +42,36 @@ public class BookDataBean {
 		this.publisher = publisher;
 	}
 
-	public int getMain_code() {
-		return main_code;
+	public String getImage() {
+		return image;
 	}
 
-	public void setMain_code(int main_code) {
-		this.main_code = main_code;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
-	public int getSub_code() {
-		return sub_code;
+	public float getGrade() {
+		return grade;
 	}
 
-	public void setSub_code(int sub_code) {
-		this.sub_code = sub_code;
+	public void setGrade(float grade) {
+		this.grade = grade;
+	}
+
+	public int getMainCode() {
+		return mainCode;
+	}
+
+	public void setMainCode(int mainCode) {
+		this.mainCode = mainCode;
+	}
+
+	public int getSubCode() {
+		return subCode;
+	}
+
+	public void setSubCode(int subCode) {
+		this.subCode = subCode;
 	}
 
 }

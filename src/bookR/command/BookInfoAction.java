@@ -28,10 +28,10 @@ public class BookInfoAction implements CommandAction {
 		BookDataBean book = bookProcess.getBookInfo(bookCode);
 		
 		MainCategoryDBBean mainCategoryProcess = MainCategoryDBBean.getInstance();
-		MainCategoryDataBean mainCatetory = mainCategoryProcess.getMainCategory(book.getMain_code());
+		MainCategoryDataBean mainCatetory = mainCategoryProcess.getMainCategory(book.getMainCode());
 		
 		SubCategoryDBBean subCategoryProcess = SubCategoryDBBean.getInstance();
-		SubCategoryDataBean subCatetory = subCategoryProcess.getSubCategory(book.getSub_code());
+		SubCategoryDataBean subCatetory = subCategoryProcess.getSubCategory(book.getSubCode());
 		
 		request.setAttribute("book", book);
 		request.setAttribute("mainCategory", mainCatetory.getName());
@@ -39,11 +39,12 @@ public class BookInfoAction implements CommandAction {
 		
 		ReviewGradeDBBean rgProcess = ReviewGradeDBBean.getInstance();
 		List<ReviewGradeDataBean> rgLists = rgProcess.getRG(bookCode);
+		request.setAttribute("rgLists", rgLists);
+		
+		
 		int grade = rgProcess.getGrade(id, bookCode);
 		String review = rgProcess.getReview(id, bookCode);
-		
-		
-		request.setAttribute("rgLists", rgLists);
+				
 		request.setAttribute("grade", grade);
 		request.setAttribute("review", review);
 		

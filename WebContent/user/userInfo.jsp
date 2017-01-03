@@ -27,19 +27,6 @@
 					<form method="post">
 						<table class="table">
 							<tbody>
-								<%-- <%
-								int i = 1;
-							%>
-							<c:forEach var="list" items="${lists }">
-								<tr>
-									<td>#<%=i++%></td>
-									<td><a
-										href="/BookR/user/list.do?listCode=${list.getListCode()}">${list.getListCode() }
-									</a></td>
-									<a href="/BookR/user/list.do?listCode=${list.getListCode()}">${list.getListCode() }</a>
-								</tr>
-							</c:forEach> --%>
-
 								<%
 									int i = 1;
 								%>
@@ -49,6 +36,7 @@
 										<td><a
 											href="/BookR/user/listConfirm.do?listCode=${list.getListCode()}">${list.getListCode() }</a>
 										</td>
+										<!-- <td><button id="deleteList" class="btn btn-primary">삭제</button></td> -->
 									</tr>
 								</c:forEach>
 							</tbody>

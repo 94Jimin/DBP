@@ -3,8 +3,8 @@ package bookR.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bookR.bean.BookDBBean;
 import bookR.bean.ReviewGradeDBBean;
-import bookR.bean.ReviewGradeDataBean;
 
 public class BookReviewGradeAction implements CommandAction {
 
@@ -25,6 +25,11 @@ public class BookReviewGradeAction implements CommandAction {
 		} else if (x == 1) { // grade¸¸ Á¸Àç
 			rgProcess.updateRG(id, bookCode, review, grade);
 		}
+		
+		BookDBBean bookProcess = BookDBBean.getInstance();
+		bookProcess.updateGrade(bookCode, grade);
+		
+		
 
 		return "/book/review_grade.jsp";
 	}

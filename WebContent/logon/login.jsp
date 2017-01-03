@@ -22,7 +22,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<a href="/BookR/index.do"><img src="/BookR/image/BookR_green.png"
+					<a href="/BookR/index.do?main_code=100"><img src="/BookR/image/BookR_green.png"
 						class="center-block img-responsive"></a>
 				</div>
 			</div>

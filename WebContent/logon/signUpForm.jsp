@@ -22,7 +22,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<a href="/BookR/index.do"> <img
+					<a href="/BookR/index.do?main_code=100"> <img
 						src="/BookR/image/BookR_green.png"
 						class="center-block img-responsive"></a>
 				</div>
@@ -38,9 +38,12 @@
 							<div class="col-sm-2">
 								<label for="id" class="control-label">아이디</label>
 							</div>
-							<div class="col-sm-10">
+							<div class="col-sm-7">
 								<input type="text" name="id" class="form-control" id="id"
 									placeholder="아이디">
+							</div>
+							<div class="col-sm-3">
+								<a id="checkId" class="btn btn-success">ID중복확인</a>
 							</div>
 						</div>
 						<div class="form-group">
@@ -75,37 +78,18 @@
 								<label for="gender" class="control-label">성별</label>
 							</div>
 							<div class="col-sm-5">
-								<input type="radio" name="gender" value="F" class="form-control"
-									id="gender">
+								<input type="radio" name="gender" value="F" id="gender">
 								<h6>여자</h6>
 							</div>
 							<div class="col-sm-5">
-								<input type="radio" name="gender" value="M" class="form-control"
-									id="gender">
+								<input type="radio" name="gender" value="M" id="gender">
 								<h6>남자</h6>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="col-sm-2">
-								<label for="favorite" class="control-label">선호장르</label>
-							</div>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="favorite"
-									name="favorite">
-								<!-- <input type="checkbox" name="chk_info" value="HTML">HTML 
-									<input type="checkbox" name="chk_info" value="CSS">CSS 
-									<input type="checkbox" name="chk_info" value="웹디자인">웹디자인 -->
-							</div>
-						</div>
 						<div class="input-group">
-							<div class=" col-md-offset-3 col-md-6">
-								<!-- <span class="input-group-btn"> <a href="signUpPro.jsp"
-									class="btn btn-block btn-success" type="submit"> <i
-										class="fa fa-fw fa-check"></i>가입하기
-								</a>
-								</span> -->
-								<!-- <input type="submit" value="가입하기" /> -->
-								<button id="signup" class="btn btn-block btn-success">
+							<div class="col-md-3">
+
+								<button id="signup" class="btn btn-success">
 									<i class="fa fa-fw fa-check"></i>가입하기
 								</button>
 							</div>

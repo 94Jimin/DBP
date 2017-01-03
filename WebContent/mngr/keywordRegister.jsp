@@ -18,8 +18,8 @@
 	rel="stylesheet" type="text/css">
 <link href="/BookR/css/bookRegister.css" rel="stylesheet"
 	type="text/css">
-<script type="text/javascript" src="bookRegister.js"></script>
-<title>BookR : 책 등록</title>
+<script type="text/javascript" src="keywordRegister.js"></script>
+<title>BookR : 키워드 등록</title>
 </head>
 <body>
 	<jsp:include page="/header.jsp"></jsp:include>
@@ -27,49 +27,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="text-center">책 등록 페이지</h1>
+					<h1 class="text-center">키워드 등록 페이지</h1>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<form class="form-horizontal"
-						action="/BookR/mngr/bookRegisterPro.do" name="bookRegister"
-						method="post" role="form" enctype="multipart/form-data">
-						<div class="form-group">
-							<div class="col-sm-2">
-								<label for="subject" class="control-label">책 제목</label>
-							</div>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" name="subject"
-									id="subject" placeholder="책 제목을 입력하세요">
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-2">
-								<label for="writer" class="control-label">책 저자</label>
-							</div>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" name="writer"
-									id="writer" placeholder="책 저자를 입력하세요">
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-2">
-								<label for="publisher" class="control-label">책 출판사</label>
-							</div>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" name="publisher"
-									id="publisher" placeholder="책 출판사를 입력하세요">
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-2">
-								<label for="image" class="control-label">책 이미지</label>
-							</div>
-							<div class="col-sm-10">
-								<input type="file" name="image" class="" id="image">
-							</div>
-						</div>
+					<form class="form-horizontal" name="keywordRegister" method="post"
+						role="form" enctype="multipart/form-data">
 						<div class="form-group">
 							<div class="col-sm-2">
 								<label for="mainCode" class="control-label">책 대분류</label>
@@ -102,9 +66,31 @@
 							<div id="keyword"></div>
 						</div>
 						<div class="form-group">
+							<div class="col-sm-2">
+								<label for="groupCode" class="control-label">키워드 그룹</label>
+							</div>
+							<div class="col-sm-10">
+								<select name="groupCode" id="groupCode">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-2">
+								<label for="name" class="control-label">키워드 이름</label>
+							</div>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="name" id="name"
+									placeholder="키워드 이름을 입력하세요">
+							</div>
+						</div>
+
+						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-primary" id="bookRegister">책
-									등록하기</button>
+								<button type="submit" class="btn btn-primary"
+									id="keywordRegister">키워드 등록하기</button>
 							</div>
 						</div>
 					</form>

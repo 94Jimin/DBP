@@ -275,5 +275,39 @@ public class ListDBBean {
 		}
 		return listCode;
 	}
+	
+	public int deleteListBook(String id, String listCode, int bookCode) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		int result = 0;
+		System.out.println(id+listCode+bookCode);
+
+		try {
+			conn = getConnection();
+
+			sql = "delete from LIST where id=? and list_code=? and book_code=?;";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, listCode);
+			pstmt.setInt(3, bookCode);
+
+			result = pstmt.executeUpdate();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return result;
+	}
 
 }

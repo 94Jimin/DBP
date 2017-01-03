@@ -26,9 +26,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<img
-						src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png"
-						class="img-responsive">
+					<img src="/BookR/bookImage/${book.getImage() }" width="250px"
+						height="330px" class="img-responsive">
 				</div>
 				<div class="col-md-9">
 
@@ -43,6 +42,9 @@
 							</div>
 							<div class="page-header">
 								<h4>${book.getPublisher() }</h4>
+							</div>
+							<div class="page-header">
+								<h6>${book.getGrade() }점</h6>
 							</div>
 							<c:if test="${!empty sessionScope.id }">
 								<div class="page-header">
@@ -133,12 +135,11 @@
 							<div class="col-sm-5">
 								<textarea id="review" name="review" cols="50">${review }</textarea>
 							</div>
-
-							<div class="col-sm-3">
-								<input type="hidden" id="idRG" value="${sessionScope.id }" /> <input
-									type="hidden" id="bookCodeRG" value="${book.getCode() }" />
-								<button type="submit" class="btn btn-primary" id="review_grade">리뷰남기기</button>
-							</div>
+							<c:if test="${!empty sessionScope.id }">
+								<div class="col-sm-3">
+									<button class="btn btn-primary" id="review_grade">리뷰남기기</button>
+								</div>
+							</c:if>
 						</div>
 					</form>
 				</div>
